@@ -1,0 +1,19 @@
+name: Attacker Controlled Workflow
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  flag-success:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Print result to log
+        run: |
+          echo "Attacker controlled workflow ran with input ${{ github.event.input.injection_point }}"
+
+

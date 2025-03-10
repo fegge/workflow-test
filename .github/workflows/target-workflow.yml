@@ -1,0 +1,21 @@
+name: Target Workflow
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  workflow_run:
+    workflows: ['Attacker Controlled Workflow']
+    types:
+      - completed
+
+jobs:
+  flag-success:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Print result to log
+        run: |
+          echo "Target workflow executed with input ${{ github.event.input.injection_point }}"
