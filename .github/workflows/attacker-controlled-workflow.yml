@@ -7,7 +7,7 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      foo:
+      injection_point:
         description: 'A scary input to pass to the workflow'
         required: true
         default: 'boo!'
