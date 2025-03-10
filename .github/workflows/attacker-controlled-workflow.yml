@@ -6,6 +6,13 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      foo:
+        description: 'A scary input to pass to the workflow'
+        required: true
+        default: 'boo!'
+        type: string
+
 
 jobs:
   flag-success:
