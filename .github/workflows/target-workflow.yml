@@ -18,4 +18,4 @@ jobs:
     steps:
       - name: Print result to log
         run: |
-          echo "Target workflow executed with input ${{ github.event.input.injection_point }}"
+          echo "Target workflow executed with input ${{ github.event.inputs.injection_point }}"
