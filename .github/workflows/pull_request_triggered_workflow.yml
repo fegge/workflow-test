@@ -7,9 +7,16 @@ on:
       - 'workflow_trigger'
 
 jobs:
-  auto_update:
+  run_script:
     runs-on: ubuntu-24.04
-
     steps:
-      - name: Create GitHub App Token
-        run: echo '🤖 Workflow triggered by attacker!'
+    
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
+        ref: ${{ github.event.pull_request.head.ref }}
+        token: ${{ steps.app-token.outputs.token }}
+
+    - name: Run benign script
+      run: bash benign_script.sh 
