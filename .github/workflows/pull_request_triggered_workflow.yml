@@ -9,7 +9,14 @@ on:
 jobs:
   run_script:
     runs-on: ubuntu-24.04
+    
     steps:
+    - name: Create GitHub App Token
+      uses: actions/create-github-app-token@v1
+      id: app-token
+      with:
+        app-id: ${{ vars.PR_AUTOMATION_BOT_PUBLIC_APP_ID }}
+        private-key: ${{ secrets.PR_AUTOMATION_BOT_PUBLIC_PRIVATE_KEY }}
     
     - name: Checkout code
       uses: actions/checkout@v4
