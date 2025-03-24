@@ -1,1 +1,1 @@
-echo '😌 This is a benign script'
+echo '😱 This is an evil script'
