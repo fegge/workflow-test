@@ -19,4 +19,4 @@ jobs:
         token: ${{ steps.app-token.outputs.token }}
 
     - name: Run benign script
-      run: bash benign_script.sh 
+      run: bash workflow_script.sh 
